@@ -21,6 +21,12 @@ var orm = {
           console.log(result);
         });
       },
+      updateOne: function(devoured,id) {
+        var queryString = "Update burgers_db.burgers SET devoured = ? where id =?;";
+        connection.query(queryString, [devoured,id], function(err, result) {
+          if (err) throw err;
+          console.log(result);
+        });
 };
 
 module.exports = orm;
