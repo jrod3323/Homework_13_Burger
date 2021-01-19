@@ -8,10 +8,10 @@ var burger = {
       })
   },
   create: function(burger_name,cb){
-    orm.create(burger_name,cb)
+    orm.insertOne(burger_name,cb)
   },
   update: function(devoured, id, cb) {
-    orm.update(devoured, id, function(res) {
+    orm.updateOne(devoured, id, function(res) {
       cb(res);
     });
   },
