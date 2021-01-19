@@ -9,7 +9,12 @@ var burger = {
   },
   create: function(burger_name,cb){
     orm.create(burger_name,cb)
-  }
+  },
+  update: function(devoured, id, cb) {
+    orm.update(devoured, id, function(res) {
+      cb(res);
+    });
+  },
 };
 
 // Export the database functions for the controller (catsController.js).
