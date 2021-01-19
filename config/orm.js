@@ -9,7 +9,7 @@ var connection = require("./connection.js");
 var orm = {
     // query to show all items from the table
     selectAll: function(cb) {
-        var queryString = "SELECT * FROM burgers_db.burgers";
+        var queryString = "SELECT * FROM burgers";
         connection.query(queryString, function(err, result) {
           if (err) throw err;
           cb(result);
@@ -25,7 +25,7 @@ var orm = {
       },
       // query to update a burger
       updateOne: function(devoured,id,cb) {
-        var queryString = "Update burgers_db.burgers SET devoured = ? where id =?;";
+        var queryString = "Update burgers SET devoured = ? where id =?;";
         connection.query(queryString, [devoured,id], function(err, result) {
           if (err) throw err;
           cb(result);
