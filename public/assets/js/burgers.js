@@ -1,9 +1,10 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
+  // watches for devoured button to be clicked and then runs put request to update burger to eaten
     $(".change-devoured").on("click", function(event) {
       var id = $(this).data("id");
       var newDevour = $(this).data("newdevoured");
-  
+      // create object to be delivered as data in put request
       var newDevourState = {
         devoured: newDevour
       };
@@ -21,10 +22,11 @@ $(function() {
       );
     });
   
+    // watches for add a burger button to be submitted and then runs the post request
     $(".create-form").on("submit", function(event) {
       // Make sure to preventDefault on a submit event.
       event.preventDefault();
-  
+      //object to pass into request body
       var newBurger = {
         name: $("#bu").val().trim(),
       };

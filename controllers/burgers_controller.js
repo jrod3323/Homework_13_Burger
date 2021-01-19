@@ -6,6 +6,7 @@ var router = express.Router();
 var burger = require("../models/burger.js");
 
 router.get("/", function(req, res) {
+    // route to get all from the DB and display
     burger.all(function(data) {
       var dataObject = {
         burgers: data
@@ -14,14 +15,14 @@ router.get("/", function(req, res) {
       res.render("index", dataObject);
     });
   });
-
+  // route to add a new burger
   router.post("/api/burgers", function(req, res) {
     burger.create(req.body.name, function(result) {
       // Send back the ID of the new quote
       res.json({ id: result.insertId });
     });
   });
-
+  // route to update a burger to eaten
   router.put("/api/burgers/:id", function(req, res) {
     var condition = "id = " + req.params.id;
   
